@@ -1,0 +1,104 @@
+modules = ["nodejs-20", "web", "postgresql-16"]
+run = "npm run dev"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["git-credential-manager"]
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["sh", "-c", "cd ExpertDashboard/Frontend && npm install && npm run build && cd ../Backend && npm install"]
+run = ["sh", "-c", "cd ExpertDashboard/Backend && node index.js"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 5173
+externalPort = 5173
+
+[[ports]]
+localPort = 24678
+externalPort = 3000
+
+[[ports]]
+localPort = 32881
+externalPort = 9000
+
+[[ports]]
+localPort = 34109
+externalPort = 5000
+
+[[ports]]
+localPort = 36111
+externalPort = 3002
+
+[[ports]]
+localPort = 38029
+externalPort = 3003
+
+[[ports]]
+localPort = 39499
+externalPort = 8000
+
+[[ports]]
+localPort = 40267
+externalPort = 8081
+
+[[ports]]
+localPort = 41003
+externalPort = 6000
+
+[[ports]]
+localPort = 41373
+externalPort = 8080
+
+[[ports]]
+localPort = 42861
+externalPort = 8099
+
+[[ports]]
+localPort = 43523
+externalPort = 8008
+
+[[ports]]
+localPort = 43803
+externalPort = 3001
+
+[[ports]]
+localPort = 44369
+externalPort = 4200
+
+[[ports]]
+localPort = 44667
+externalPort = 6800
+
+[env]
+PORT = "5000"
+
+[agent]
+integrations = ["javascript_log_in_with_replit:1.0.0", "javascript_database:1.0.0"]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000

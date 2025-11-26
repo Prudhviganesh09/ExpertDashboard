@@ -1,0 +1,43 @@
+modules = ["nodejs-20", "web"]
+run = "npm run dev"
+
+[nix]
+channel = "stable-25_05"
+
+[deployment]
+run = ["sh", "-c", "cd Backend && npm install && node index.js"]
+build = ["sh", "-c", "cd Frontend && npm install && npm run build"]
+deploymentTarget = "cloudrun"
+
+[workflows]
+runButton = "Full Stack Dev Server"
+
+[[workflows.workflow]]
+name = "Frontend Dev Server"
+author = 44789006
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Frontend && npm run dev"
+
+[[workflows.workflow]]
+name = "Full Stack Dev Server"
+author = 44789006
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Backend && npm install && node index.js"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Frontend && npm install && npm run dev"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[[ports]]
+localPort = 5173
+externalPort = 5173

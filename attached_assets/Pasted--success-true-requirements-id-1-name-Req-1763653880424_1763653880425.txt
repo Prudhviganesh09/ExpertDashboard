@@ -1,0 +1,307 @@
+{
+    "success": true,
+    "requirements": [
+        {
+            "id": 1,
+            "name": "Requirement 1",
+            "preferences": {
+                "budget": "₹20000000 - ₹20000000",
+                "facing": "Not specified",
+                "sizeMax": "Not specified",
+                "sizeMin": "Not specified",
+                "floorMax": "Not specified",
+                "floorMin": "Not specified",
+                "location": "Hitec City, Gachibowli, Guttala Begumpet, Hafeezpet, Kalyan Nagar, Kondapur, Kothaguda, Madhapur",
+                "budgetMax": 20000000,
+                "budgetMin": 20000000,
+                "gatedType": "Not specified",
+                "locations": [
+                    "Hitec City",
+                    "Gachibowli",
+                    "Guttala Begumpet",
+                    "Hafeezpet",
+                    "Kalyan Nagar",
+                    "Kondapur",
+                    "Kothaguda",
+                    "Madhapur"
+                ],
+                "possession": "6-12 months",
+                "budgetRange": "Not decided yet",
+                "possessions": [
+                    "6-12 months"
+                ],
+                "buildingType": "Not specified",
+                "propertyType": "Apartment",
+                "configuration": "3 BHK, 3.5 BHK, 2.5 BHK",
+                "configurations": [
+                    "3 BHK",
+                    "3.5 BHK",
+                    "2.5 BHK"
+                ],
+                "financingOption": "Loan option",
+                "possessionTimeline": "Not decided yet",
+                "matchedPropertyCount": "5",
+                "includeGSTRegistration": false
+            },
+            "matchedProperties": [
+                {
+                    "id": 6502,
+                    "bhk": "3",
+                    "facing": "East",
+                    "sqfeet": "1585",
+                    "sqyard": "",
+                    "contact": "",
+                    "areaname": "Kondapur",
+                    "GRID_Score": "Available Soon",
+                    "buildername": "RNP STELLAR PROJECTS LLP",
+                    "projectname": "RNP 1",
+                    "rera_number": "P02400003165",
+                    "project_type": "Apartment",
+                    "communitytype": "Gated",
+                    "price_per_sft": 9000,
+                    "schools_count": 20,
+                    "amenities_score": 100,
+                    "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJDSEMObyRyzsR9syKABEaGsU",
+                    "google_place_id": "ChIJDSEMObyRyzsR9syKABEaGsU",
+                    "hospitals_count": 20,
+                    "nearest_schools": [
+                        {
+                            "name": "ORCHIDS The International School - CBSE School in Jubilee Hills",
+                            "rating": 4.5,
+                            "distance": "0.38"
+                        },
+                        {
+                            "name": "Swathi High School",
+                            "rating": null,
+                            "distance": "0.53"
+                        },
+                        {
+                            "name": "Rock Well International School Activity Block",
+                            "rating": 5,
+                            "distance": "0.82"
+                        },
+                        {
+                            "name": "Natco Government High School",
+                            "rating": null,
+                            "distance": "1.15"
+                        },
+                        {
+                            "name": "The Loharu Montessori Children's House",
+                            "rating": 5,
+                            "distance": "1.39"
+                        }
+                    ],
+                    "possession_date": "RTM",
+                    "pricesheet_link": "",
+                    "baseprojectprice": 14265000,
+                    "it_offices_count": "20",
+                    "google_place_name": "RNP Stellar Projects LLP",
+                    "nearest_hospitals": [
+                        {
+                            "name": "The Sanctum, Natural Birth Center",
+                            "rating": 4.7,
+                            "distance": "0.34"
+                        },
+                        {
+                            "name": "J. N. Speciality Clinic, Diagnostic & Physiotherapy",
+                            "rating": 5,
+                            "distance": "0.56"
+                        },
+                        {
+                            "name": "L V Prasad Eye Institute (LVPEI) - Lahoti Eye Centre",
+                            "rating": 3.1,
+                            "distance": "0.71"
+                        },
+                        {
+                            "name": "Techiemed Healthcare Systems",
+                            "rating": null,
+                            "distance": "0.75"
+                        },
+                        {
+                            "name": "Tranquil Minds - Psychiatric Clinic",
+                            "rating": 4.3,
+                            "distance": "1.15"
+                        }
+                    ],
+                    "restaurants_count": 20,
+                    "connectivity_score": "100",
+                    "external_amenities": "",
+                    "nearest_it_offices": [
+                        {
+                            "name": "Levitica Technologies PVT LTD",
+                            "rating": 4.9,
+                            "distance": "1.22"
+                        },
+                        {
+                            "name": "ITRadiant Solutions Pvt. Ltd.",
+                            "rating": 4.1,
+                            "distance": "1.22"
+                        },
+                        {
+                            "name": "Techraq Info Solutions Private Limited",
+                            "rating": 3.9,
+                            "distance": "1.38"
+                        },
+                        {
+                            "name": "ZAZZ IT SOLUTIONS PRIVATE LIMITED",
+                            "rating": 4.6,
+                            "distance": "1.38"
+                        },
+                        {
+                            "name": "Cigniti Technologies Limited, a Coforge Company",
+                            "rating": 4,
+                            "distance": "1.71"
+                        }
+                    ],
+                    "nearest_orr_access": [
+                        {
+                            "name": "Nehru Outer Ring Rd",
+                            "distance": "3.67"
+                        }
+                    ],
+                    "supermarkets_count": "0",
+                    "google_place_rating": "4.1",
+                    "nearest_restaurants": [
+                        {
+                            "name": "AB's - Absolute Barbecues | Jubilee Hills, Hyderabad",
+                            "rating": 4.1,
+                            "distance": "0.77"
+                        },
+                        {
+                            "name": "Country Oven Madhapur",
+                            "rating": 3.8,
+                            "distance": "0.84"
+                        },
+                        {
+                            "name": "Hotel Daspalla Hyderabad",
+                            "rating": 4.2,
+                            "distance": "0.93"
+                        },
+                        {
+                            "name": "La Riviera Suites",
+                            "rating": 4.5,
+                            "distance": "1.21"
+                        },
+                        {
+                            "name": "Pizza Hut | Madhapur, Hyderabad",
+                            "rating": 3.9,
+                            "distance": "1.22"
+                        }
+                    ],
+                    "google_place_address": "Second floor, Plot No 64/B, Kavuri Hills, Amar Co-Operative Society, Guttala_Begumpet, Hyderabad, Telangana 500081, India",
+                    "metro_stations_count": "16",
+                    "nearest_supermarkets": [
+                        {
+                            "name": "Reliance Fresh",
+                            "rating": 3.7,
+                            "distance": "1.44"
+                        },
+                        {
+                            "name": "Reliance SMART Bazaar",
+                            "rating": 4,
+                            "distance": "1.61"
+                        },
+                        {
+                            "name": "Vijetha Supermarket Madhapur",
+                            "rating": 4,
+                            "distance": "1.63"
+                        },
+                        {
+                            "name": "Heritage fresh - Rajeev Nagar",
+                            "rating": 3.7,
+                            "distance": "2.91"
+                        },
+                        {
+                            "name": "Sri Krishna Bhandar",
+                            "rating": 4.3,
+                            "distance": "3.37"
+                        }
+                    ],
+                    "shopping_malls_count": 20,
+                    "mobile_google_map_url": "https://www.google.com/maps/search/?api=1&query=17.4453005,78.3975208",
+                    "nearest_metro_station": [
+                        {
+                            "name": "Madhapur",
+                            "distance": "0.94"
+                        },
+                        {
+                            "name": "Durgam Cheruvu",
+                            "distance": "1.09"
+                        },
+                        {
+                            "name": "HITEC City",
+                            "distance": "1.57"
+                        }
+                    ],
+                    "high_rated_restaurants": [
+                        {
+                            "name": "AB's - Absolute Barbecues | Jubilee Hills, Hyderabad",
+                            "rating": 4.1,
+                            "distance": "0.77"
+                        },
+                        {
+                            "name": "Hotel Daspalla Hyderabad",
+                            "rating": 4.2,
+                            "distance": "0.93"
+                        },
+                        {
+                            "name": "La Riviera Suites",
+                            "rating": 4.5,
+                            "distance": "1.21"
+                        },
+                        {
+                            "name": "Avasa",
+                            "rating": 4.4,
+                            "distance": "1.48"
+                        },
+                        {
+                            "name": "Fusion 9",
+                            "rating": 4,
+                            "distance": "1.63"
+                        }
+                    ],
+                    "nearest_shopping_malls": [
+                        {
+                            "name": "Adtribe",
+                            "rating": null,
+                            "distance": "0.18"
+                        },
+                        {
+                            "name": "Forum",
+                            "rating": 4.3,
+                            "distance": "0.94"
+                        },
+                        {
+                            "name": "New Arife Lamoulde",
+                            "rating": 4.1,
+                            "distance": "1.05"
+                        },
+                        {
+                            "name": "‡∞Ü‡∞∞‡±ç‡∞ö‡∞ø‡∞∏‡±ç ‡∞™‡±á‡∞™‡∞∞‡±ç ‡∞∞‡±ã‡∞∏‡±ç ‡∞∑‡∞æ‡∞™",
+                            "rating": 3.8,
+                            "distance": "1.08"
+                        },
+                        {
+                            "name": "Spykar",
+                            "rating": 4.8,
+                            "distance": "1.64"
+                        }
+                    ],
+                    "railway_stations_count": "20",
+                    "nearest_railway_station": [
+                        {
+                            "name": "Borabanda",
+                            "distance": "1.91"
+                        },
+                        {
+                            "name": "Hi-Tech City",
+                            "distance": "3.03"
+                        },
+                        {
+                            "name": "Sanatnagar CONCOR siding",
+                            "distance": "3.17"
+                        }
+                    ],
+                    "google_place_user_ratings_total": "11",
+                    "restaurants_above_4_stars_count": 10
+                }

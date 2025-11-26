@@ -1,0 +1,230 @@
+{
+    "success": true,
+    "message": "Requirement updated successfully",
+    "requirementId": "14",
+    "matchingProperties": [
+        {
+            "id": 6259,
+            "rera_number": "P02400001484",
+            "projectname": "SMR Vinay Boulder Woods",
+            "buildername": "SMR HOLDINGS",
+            "baseprojectprice": 14100000,
+            "areaname": "Bandlaguda Jagir",
+            "bhk": "3",
+            "sqfeet": "1880",
+            "sqyard": "",
+            "project_type": "Apartment",
+            "possession_date": "RTM",
+            "pricesheet_link": "",
+            "GRID_Score": "Available Soon",
+            "connectivity_score": "100",
+            "amenities_score": 100,
+            "hospitals_count": 20,
+            "schools_count": 20,
+            "shopping_malls_count": 20,
+            "restaurants_count": 20,
+            "restaurants_above_4_stars_count": 9,
+            "supermarkets_count": "0",
+            "it_offices_count": "0",
+            "metro_stations_count": "0",
+            "railway_stations_count": "20",
+            "google_maps_url": "https://www.google.com/maps/place/?q=place_id:ChIJmynKsY6XyzsRIR0AaP6Aufo",
+            "mobile_google_map_url": "https://www.google.com/maps/search/?api=1&query=17.3495815,78.38874799999999",
+            "google_place_id": "ChIJmynKsY6XyzsRIR0AaP6Aufo",
+            "google_place_name": "SMR Vinay Boulder Woods",
+            "google_place_address": "Abhyudaya Nagar, Bandlaguda Jagir, Kismatpur, Telangana 500086, India",
+            "google_place_rating": "4",
+            "google_place_user_ratings_total": "51",
+            "nearest_hospitals": [
+                {
+                    "name": "Healthy Tummies Happy Kids| Child care clinic",
+                    "rating": 5,
+                    "distance": "0.19"
+                },
+                {
+                    "name": "Aaradhya Speciality Clinics - Physician, Diabetes, Heart & Cancer Care in Hyderabad",
+                    "rating": 4.9,
+                    "distance": "0.20"
+                },
+                {
+                    "name": "Thanvi Medical & General Store",
+                    "rating": null,
+                    "distance": "0.21"
+                },
+                {
+                    "name": "SV CLINICS",
+                    "rating": 4.8,
+                    "distance": "0.36"
+                },
+                {
+                    "name": "First Aid",
+                    "rating": null,
+                    "distance": "0.40"
+                }
+            ],
+            "nearest_schools": [
+                {
+                    "name": "small wonders play school And Daycare",
+                    "rating": 4.8,
+                    "distance": "0.23"
+                },
+                {
+                    "name": "EuroKids pre school",
+                    "rating": 4.9,
+                    "distance": "0.23"
+                },
+                {
+                    "name": "HYDERABAD SCHOOL OF EXCELLENCE",
+                    "rating": null,
+                    "distance": "0.31"
+                },
+                {
+                    "name": "Baalyam Pre School and Daycare",
+                    "rating": 4.7,
+                    "distance": "0.80"
+                },
+                {
+                    "name": "Archangels High School ‡∞Ü‡∞∞‡±ç‡∞ï‡±á‡∞Ç‡∞ú‡∞≤‡±ç‡∞∏‡±ç ‡∞π‡±à ‡∞∏‡±ç‡∞ï‡±Ç‡∞≤‡±ç",
+                    "rating": null,
+                    "distance": "0.94"
+                }
+            ],
+            "nearest_shopping_malls": [
+                {
+                    "name": "SRK Silks",
+                    "rating": null,
+                    "distance": "0.73"
+                },
+                {
+                    "name": "Chalya Brands",
+                    "rating": null,
+                    "distance": "0.77"
+                },
+                {
+                    "name": "TAMRA Mall & Multiplex",
+                    "rating": 5,
+                    "distance": "0.98"
+                },
+                {
+                    "name": "New Wheel Smart",
+                    "rating": 4.7,
+                    "distance": "1.08"
+                },
+                {
+                    "name": "Max",
+                    "rating": 3.8,
+                    "distance": "1.09"
+                }
+            ],
+            "nearest_restaurants": [
+                {
+                    "name": "DURGA BAVANI FAST FOOD ZONE",
+                    "rating": 4.4,
+                    "distance": "0.14"
+                },
+                {
+                    "name": "the spice oak",
+                    "rating": null,
+                    "distance": "0.17"
+                },
+                {
+                    "name": "Fitpride",
+                    "rating": 5,
+                    "distance": "0.19"
+                },
+                {
+                    "name": "Zaker Fabriction wedding work",
+                    "rating": 5,
+                    "distance": "0.19"
+                },
+                {
+                    "name": "The Seasons cafe",
+                    "rating": 4.5,
+                    "distance": "0.20"
+                }
+            ],
+            "high_rated_restaurants": [
+                {
+                    "name": "DURGA BAVANI FAST FOOD ZONE",
+                    "rating": 4.4,
+                    "distance": "0.14"
+                },
+                {
+                    "name": "Fitpride",
+                    "rating": 5,
+                    "distance": "0.19"
+                },
+                {
+                    "name": "Zaker Fabriction wedding work",
+                    "rating": 5,
+                    "distance": "0.19"
+                },
+                {
+                    "name": "The Seasons cafe",
+                    "rating": 4.5,
+                    "distance": "0.20"
+                },
+                {
+                    "name": "Sri Venkateshwara Tiffins And Fastfood",
+                    "rating": 4.5,
+                    "distance": "0.22"
+                }
+            ],
+            "nearest_supermarkets": [
+                {
+                    "name": "Vikas Kirana & General Store",
+                    "rating": 5,
+                    "distance": "0.33"
+                },
+                {
+                    "name": "SAI KIRANA GENERAL STORE",
+                    "rating": 4.3,
+                    "distance": "0.38"
+                },
+                {
+                    "name": "Amul Milk Parlour",
+                    "rating": 4.2,
+                    "distance": "0.86"
+                },
+                {
+                    "name": "Ratnadeep Select",
+                    "rating": 4.4,
+                    "distance": "0.96"
+                },
+                {
+                    "name": "Vishal Mega Mart",
+                    "rating": 3.7,
+                    "distance": "1.07"
+                }
+            ],
+            "nearest_it_offices": [],
+            "nearest_metro_station": [],
+            "nearest_railway_station": [
+                {
+                    "name": "Budvel",
+                    "distance": "5.86"
+                },
+                {
+                    "name": "NPA Shivram Pally",
+                    "distance": "5.92"
+                },
+                {
+                    "name": "Falaknuma",
+                    "distance": "9.28"
+                }
+            ],
+            "nearest_orr_access": [
+                {
+                    "name": "Nehru Outer Ring Rd",
+                    "distance": "10.23"
+                }
+            ],
+            "communitytype": "Gated",
+            "facing": "West",
+            "price_per_sft": 7500,
+            "external_amenities": "",
+            "contact": ""
+        }
+    ],
+    "totalMatches": 1
+}
