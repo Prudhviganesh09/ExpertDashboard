@@ -103,12 +103,25 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
     enabled: !!selectedDate,
   });
 
-  // Auto-select first expert when experts load
+  // Auto-select first expert when experts load or dialog opens
   useEffect(() => {
     if (expertsData?.experts && expertsData.experts.length > 0 && !selectedExpert) {
+      console.log('✅ Auto-selecting first expert:', expertsData.experts[0].email);
       setSelectedExpert(expertsData.experts[0].email);
     }
   }, [expertsData, selectedExpert]);
+
+  // Ensure expert is selected when dialog opens
+  useEffect(() => {
+    if (scheduleDialog && expertsData?.experts && expertsData.experts.length > 0) {
+      if (!selectedExpert) {
+        console.log('✅ Dialog opened - auto-selecting first expert:', expertsData.experts[0].email);
+        setSelectedExpert(expertsData.experts[0].email);
+      } else {
+        console.log('✅ Dialog opened - expert already selected:', selectedExpert);
+      }
+    }
+  }, [scheduleDialog, expertsData, selectedExpert]);
 
   const scheduleMutation = useMutation({
     mutationFn: async (meetingData: {
@@ -135,19 +148,18 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ['expert-meetings', clientId] });
 
-      let description = `Your call with ${data.meeting.expertName} has been scheduled.`;
+      let description = `Your call has been scheduled successfully.`;
 
       if (data.emailSent) {
         description += ` A confirmation email has been sent.`;
       } else if (data.warning) {
-        // keep the warning if any, but avoid exposing email addresses
         description += ` However, there was an issue sending the confirmation email.`;
       }
 
       if (data.calendarSynced === false || data.warning) {
         toast({
           title: "Meeting Scheduled (Calendar Issue)",
-          description: data.warning || "Meeting saved but not added to expert's calendar.",
+          description: data.warning || "Meeting saved but there was a calendar sync issue.",
           variant: "destructive",
         });
       } else {
@@ -158,7 +170,7 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
       }
 
       setScheduleDialog(false);
-      setSelectedExpert("");
+      // Don't clear selectedExpert - it will auto-select on next dialog open
       setSelectedDate("");
       setSelectedTime("");
     },
@@ -172,10 +184,66 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
   });
 
   const handleScheduleMeeting = () => {
-    if (!selectedExpert || !selectedDate || !selectedTime) {
+    console.log('🔍 Scheduling validation:', { selectedExpert, selectedDate, selectedTime });
+    console.log('🔍 Available experts:', expertsData?.experts);
+
+    // Find the best available expert for this time slot
+    let expertToUse = selectedExpert;
+    if (expertsData?.experts && expertsData.experts.length > 0 && selectedDate && selectedTime) {
+      const slotDateTime = new Date(`${selectedDate}T${selectedTime}`);
+      const slotEndTime = new Date(slotDateTime.getTime() + 45 * 60000); // 45 min meeting
+      const slotBufferEnd = new Date(slotEndTime.getTime() + 15 * 60000); // +15 min buffer
+
+      // Find which experts are available at this time
+      const availableExperts = expertsData.experts.filter(expert => {
+        if (!allMeetingsData?.meetings) return true;
+
+        // Check if this expert has any conflicting meetings
+        const hasConflict = allMeetingsData.meetings.some(meeting => {
+          if (meeting.expertEmail !== expert.email) return false;
+
+          const meetingStart = new Date(meeting.startTime);
+          const meetingEnd = new Date(meeting.endTime);
+          const meetingBufferEnd = new Date(meetingEnd.getTime() + 15 * 60000);
+
+          return (
+            (slotDateTime >= meetingStart && slotDateTime < meetingBufferEnd) ||
+            (meetingStart >= slotDateTime && meetingStart < slotBufferEnd)
+          );
+        });
+
+        return !hasConflict;
+      });
+
+      if (availableExperts.length > 0) {
+        // Select the first available expert
+        expertToUse = availableExperts[0].email;
+        setSelectedExpert(expertToUse);
+        console.log('✅ Auto-selected available expert:', expertToUse, 'from', availableExperts.length, 'available experts');
+      } else if (!expertToUse) {
+        // Fallback to first expert if none are technically "available"
+        expertToUse = expertsData.experts[0].email;
+        setSelectedExpert(expertToUse);
+        console.log('⚠️ No experts available in this slot, using first expert:', expertToUse);
+      }
+    } else if (!expertToUse && expertsData?.experts && expertsData.experts.length > 0) {
+      // If we don't have date/time yet, just use first expert
+      expertToUse = expertsData.experts[0].email;
+      setSelectedExpert(expertToUse);
+      console.log('⚡ Emergency auto-select during validation:', expertToUse);
+    }
+
+    if (!expertToUse || !selectedDate || !selectedTime) {
+      const missing = [];
+      if (!expertToUse) missing.push('expert');
+      if (!selectedDate) missing.push('date');
+      if (!selectedTime) missing.push('time');
+
+      console.error('❌ Missing fields:', missing);
+
       toast({
         title: "Missing Information",
-        description: "Please select an expert, date, and time.",
+        description: `Please select a ${missing.filter(m => m !== 'expert').join(' and ')}.`,
         variant: "destructive",
       });
       return;
@@ -192,10 +260,12 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
       return;
     }
 
+    console.log('✅ Submitting meeting with expert:', expertToUse);
+
     scheduleMutation.mutate({
       clientId,
       clientName,
-      expertEmail: selectedExpert,
+      expertEmail: expertToUse,
       startTime: dateTime.toISOString(),
     });
   };
@@ -321,9 +391,9 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
             <CalendarIcon className="h-10 w-10 text-blue-500" />
           </div>
           <div>
-            <h2 className="text-2xl font-semibold mb-2">Schedule Expert Call</h2>
+            <h2 className="text-2xl font-semibold mb-2">Schedule a Call</h2>
             <p className="text-muted-foreground">
-              Book a 45-minute consultation with our real estate experts
+              Book a 45-minute consultation with our team
             </p>
           </div>
           <Button
@@ -343,7 +413,7 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
           <CardHeader>
             <CardTitle className="text-xl flex items-center gap-2">
               <Clock className="h-5 w-5 text-primary" />
-              Scheduled Expert Calls ({upcomingMeetings.length})
+              Scheduled Calls ({upcomingMeetings.length})
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -356,15 +426,12 @@ export default function ExpertScheduling({ clientId, clientName }: ExpertSchedul
                 <div className="flex items-start justify-between">
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
-                      <User className="h-4 w-4 text-muted-foreground" />
-                      <span className="font-semibold">{meeting.expertName}</span>
                       <Badge variant="outline">{meeting.duration} minutes</Badge>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <CalendarIcon className="h-4 w-4" />
                       <span>{formatDateTime(meeting.startTime)}</span>
                     </div>
-                    {/* expert email removed from UI */}
                   </div>
                   <Badge variant={meeting.status === 'scheduled' ? 'default' : 'secondary'}>
                     {meeting.status}

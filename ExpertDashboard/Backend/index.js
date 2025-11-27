@@ -5225,17 +5225,19 @@ const EXPERTS = {
     'harshithv': {
         id: 'harshithv',
         // load sensitive emails / calendar ids from environment vars if available
-        email: process.env.EXPERT_HARSHITHV_EMAIL || null,
+        email: process.env.EXPERT_HARSHITHV_EMAIL || 'expert1@relai.com',
         name: 'Expert 1',
         calendarId: process.env.EXPERT_HARSHITHV_CALENDAR_ID || null,
     },
     'vaishnavig': {
         id: 'vaishnavig',
-        email: process.env.EXPERT_VAISHNAVI_EMAIL || null,
+        email: process.env.EXPERT_VAISHNAVI_EMAIL || 'expert2@relai.com',
         name: 'Expert 2',
         calendarId: process.env.EXPERT_VAISHNAVI_CALENDAR_ID || null,
     }
 };
+
+console.log('🔧 Configured Experts:', JSON.stringify(Object.values(EXPERTS).map(e => ({ name: e.name, email: e.email })), null, 2));
 
 // Helper: resolve a given identifier (could be an internal id or an email string)
 function resolveExpertIdentifier(identifier) {
@@ -5587,13 +5589,18 @@ app.post('/api/expert-meetings', async (req, res) => {
             if (isAvailable) {
                 assignedExpertKey = resolved ? resolved.key : null;
                 assignedExpertStoredValue = queryValue;
+                console.log(`✅ Requested expert ${queryValue} is available`);
+            } else {
+                console.log(`⚠️ Requested expert ${queryValue} is NOT available, will search for another expert`);
             }
         }
 
         // If no expert assigned yet, find any available expert
         if (!assignedExpertKey && !assignedExpertStoredValue) {
+            console.log('🔍 Searching for any available expert...');
             for (const expertKey of Object.keys(EXPERTS)) {
                 const emailOrKey = EXPERTS[expertKey].email || expertKey;
+                console.log(`   Checking availability for ${EXPERTS[expertKey].name} (${emailOrKey})`);
                 const { data: existingMeetings, error: fetchError } = await supabaseAdmin
                     .from('expert_meetings')
                     .select('*')
@@ -5615,7 +5622,10 @@ app.post('/api/expert-meetings', async (req, res) => {
                 if (isAvailable) {
                     assignedExpertKey = expertKey;
                     assignedExpertStoredValue = emailOrKey;
+                    console.log(`   ✅ ${EXPERTS[expertKey].name} is available - assigning meeting`);
                     break;
+                } else {
+                    console.log(`   ❌ ${EXPERTS[expertKey].name} is busy`);
                 }
             }
         }
